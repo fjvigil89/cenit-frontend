@@ -5,14 +5,15 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json .
 COPY package-lock.json .
-RUN npm install -g npm@latest
-RUN npm install --save react@latest
+#RUN npm install -g npm@latest
 #RUN npm ci --silent
 RUN npm install react-scripts --production -g --silent
 COPY env.sh .
 COPY src src/
 COPY public public/
 COPY conf conf/
+RUN npm install -g npm@latest
+RUN npm install 
 RUN npm run build
 
 # => Run container
