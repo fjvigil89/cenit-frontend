@@ -6,6 +6,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json .
 COPY package-lock.json .
 RUN npm install -g npm@latest
+RUN npm install --save react@latest
 #RUN npm ci --silent
 RUN npm install react-scripts --production -g --silent
 COPY env.sh .
